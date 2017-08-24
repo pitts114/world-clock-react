@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-
+import clockBase from './clockBase.jpg'
+/*
 class App extends Component {
   render() {
     return (
@@ -15,6 +16,26 @@ class App extends Component {
         </p>
       </div>
     );
+  }
+}
+*/
+
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <Clock />
+      </div>
+    )
+  }
+}
+class Clock extends Component {
+  render() {
+    return (
+      <div>
+      <img src={clockBase} alt = "clock" height="100px" width="100px"/>
+      </div>
+    )
   }
 }
 
