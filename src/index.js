@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import Moment from 'react-moment';
+import 'moment-timezone';
 
 var d = new Date();
 

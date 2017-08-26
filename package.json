@@ -5,6 +5,7 @@
   "dependencies": {
     "express": "^4.15.4",
     "moment": "^2.18.1",
+    "moment-timezone": "^0.5.13",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-moment": "^0.6.4",
