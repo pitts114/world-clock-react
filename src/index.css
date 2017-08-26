@@ -3,6 +3,8 @@
 }
 .bg-dark {
   background-color: #555;
+  color:white;
+  margin-left: -20px;
 }
 
 .bg-light {
