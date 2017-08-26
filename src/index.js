@@ -5,10 +5,10 @@ import './index.css';
 function App() {
   return (
     <div className="container">
-      <div id="city-panel" className="col-xs-3  bg-dark">
+      <div id="city-panel" className="col-xs-4  bg-dark">
         <h2>Cities</h2>
       </div>
-      <div className="col-xs-9 bg-light">
+      <div className="col-xs-8 bg-light">
         <ClockPanel />
       </div>
     </div>
@@ -18,18 +18,8 @@ function App() {
 function ClockPanel() {
   return (
       <div className="row text-center">
-        <WorldClock />
+        <Clock />
       </div>
-  )
-}
-
-function WorldClock() {
-  return (
-        <div className="div-col-xs-3">
-          <div className="worldClock">
-            <Clock />
-          </div>
-        </div>
   )
 }
 
@@ -59,7 +49,7 @@ class Clock extends React.Component {
 
   render() {
       return (
-        <div>
+        <div className="col-xs-4">
           <h2>{this.state.time}</h2>
           <h3>New York</h3>
         </div>

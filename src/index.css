@@ -2,12 +2,25 @@
   height: 100vh;
 }
 .bg-dark {
-  background-color: #555;
+  background-color: rgba(50,50,50,.8);
   color:white;
-  margin-left: -20px;
+
 }
 
 .bg-light {
-  background-color: #FFFFFF;
+  background-color: rgba(255,255,255,.7);
   height: 100vh;
+
+}
+body {
+    background-image: url('img/bg.jpg');
+    background-position: center;
+}
+.container {
+        padding-left: 0px  !important;
+        padding-right: 0px !important;
+}
+.container .row {
+        margin-left: 0px !important;
+        margin-right: 0px !important;
 }
