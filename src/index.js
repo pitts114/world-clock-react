@@ -2,6 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+var d = new Date();
+
+setInterval(()=>{
+  d = new Date();
+  console.log(d.toString())
+}, 1000);
+
+
 function App() {
   return (
     <div className="container">
@@ -27,12 +35,12 @@ class Clock extends React.Component {
   constructor() {
     super()
     this.state = {
-      time: new Date().toLocaleTimeString()
+      time: d.toLocaleTimeString()
     }
   }
   tick() {
     this.setState({
-      time: new Date().toLocaleTimeString()
+      time: d.toLocaleTimeString()
     });
   }
 
