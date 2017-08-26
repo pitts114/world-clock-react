@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import clockBase from './clockBase.jpg'
+import clockBase from './img/clockBase.jpg'
 /*
 class App extends Component {
   render() {
@@ -24,11 +24,23 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Clock />
+        <WorldClock />
       </div>
     )
   }
 }
+
+class WorldClock extends Component {
+  render (){
+    return (
+      <div className="worldClock">
+        <Clock />
+        <h1>Hello world</h1>
+      </div>
+    )
+  }
+}
+
 class Clock extends Component {
   render() {
     return (

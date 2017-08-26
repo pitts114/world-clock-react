@@ -3,3 +3,6 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+.worldClock {
+  outline: #00FF00 thick;
+}
