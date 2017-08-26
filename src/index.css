@@ -1,0 +1,11 @@
+#city-panel {
+  height: 100vh;
+}
+.bg-dark {
+  background-color: #555;
+}
+
+.bg-light {
+  background-color: #FFFFFF;
+  height: 100vh;
+}
