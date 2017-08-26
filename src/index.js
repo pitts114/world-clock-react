@@ -18,16 +18,27 @@ class Clock extends React.Component {
       time: new Date().toLocaleTimeString()
     }
   }
+  tick() {
+    this.setState({
+      time: new Date().toLocaleTimeString()
+    });
+  }
 
+  componentDidMount() {
+    this.timerID = setInterval(
+      () => this.tick(),
+      1000
+    );
+  }
 
-componentDidMount() {
-  this.interval = setInterval(()=> {}, 1000)
-}
+  componentWillUnmount() {
+    clearInterval(this.timerID);
+  }
 
   render() {
-    return <p>{this.state.time}</p>
+      return <p>{this.state.time}</p>
+    }
   }
-}
 
 //===================
 ReactDOM.render(
