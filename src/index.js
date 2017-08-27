@@ -6,6 +6,12 @@ import 'moment-timezone';
 
 var d = new Date();
 
+const cities = [
+  {city: "New York", tz:"America/New_York"},
+  {city: "Los Angeles", tz:"America/Los_Angeles"},
+  {city: "Tokyo", tz: "Asia/Tokyo"},
+  {city: "Chicago", tz: "America/Chicago" }
+];
 
 
 function App() {
@@ -20,7 +26,7 @@ function App() {
     </div>
   )
 }
-
+/*
 function ClockPanel() {
   return (
       <div className="row text-center">
@@ -30,6 +36,21 @@ function ClockPanel() {
       </div>
   )
 }
+*/
+class ClockPanel extends React.Component {
+    render() {
+      var list = cities.map(function(val) {
+        console.log(val);
+        return (<Clock key={val.city} city={val.city} tz={val.tz} />)
+      })
+      return (
+        <div className="row text-center">
+          {list}
+        </div>
+      )
+    }
+}
+
 
 class Clock extends React.Component {
   constructor(props) {
@@ -42,7 +63,7 @@ class Clock extends React.Component {
   render() {
       return (
         <div className="col-xs-4">
-          <h2><Moment interval={1000} format="h:mm:ss A" tz={this.props.tz}/></h2>
+          <h2><Moment interval={1000} format="h:mm A" tz={this.props.tz}/></h2>
           <h3>{this.props.city}</h3>
         </div>
       )
