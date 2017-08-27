@@ -10,7 +10,8 @@ const cities = [
   {city: "New York", tz:"America/New_York"},
   {city: "Los Angeles", tz:"America/Los_Angeles"},
   {city: "Tokyo", tz: "Asia/Tokyo"},
-  {city: "Chicago", tz: "America/Chicago" }
+  {city: "Chicago", tz: "America/Chicago" },
+  {city: "London", tz: "Europe/London"}
 ];
 
 
@@ -40,11 +41,11 @@ class App extends React.Component {
 render() {
   return (
     <div className="container">
-      <div id="city-panel" className="col-xs-4  bg-dark">
+      <div id="city-panel" className="col-xs-5 col-sm-2 bg-dark">
         <h2>Cities</h2>
         <CityPanel addCity={this.addCity} rmCity={this.removeCity}/>
       </div>
-      <div className="col-xs-8 bg-light">
+      <div className="col-xs-7 col-sm-10 bg-light">
         <ClockPanel activeCities={this.state.activeCities}/>
       </div>
     </div>
