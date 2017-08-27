@@ -19,6 +19,7 @@ function App() {
     <div className="container">
       <div id="city-panel" className="col-xs-4  bg-dark">
         <h2>Cities</h2>
+        <CityPanel />
       </div>
       <div className="col-xs-8 bg-light">
         <ClockPanel />
@@ -37,6 +38,20 @@ function ClockPanel() {
   )
 }
 */
+
+class CityPanel extends React.Component {
+  render() {
+    var list = cities.map(function(val) {
+      return <p key={val.city}>{val.city}</p>
+    })
+    return (
+      <ul>
+        {list}
+      </ul>
+    )
+  }
+}
+
 class ClockPanel extends React.Component {
     render() {
       var list = cities.map(function(val) {
