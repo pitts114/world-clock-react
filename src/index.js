@@ -39,10 +39,42 @@ function ClockPanel() {
 }
 */
 
+class CityButton extends React.Component {
+  constructor() {
+    super()
+    this.state= {
+      shouldAdd: true,
+      class: "fa-plus-circle"
+    }
+  }
+  toggle() {
+    if (this.state.shouldAdd) {
+      this.setState({
+        shouldAdd:false,
+        class: "fa-minus-circle"
+      })
+    }
+    else {
+      this.setState({
+        shouldAdd: true,
+        class: "fa-plus-circle"
+      })
+    }
+  }
+  render() {
+    return(
+      <i className="fa fa-plus-circle" aria-hidden="true" onClick={this.props.onClick}></i>
+    )
+  }
+}
+
 class CityPanel extends React.Component {
+
   render() {
     var list = cities.map(function(val) {
-      return <p key={val.city}>{val.city} <i className="fa fa-plus-circle" aria-hidden="true" onClick={()=>{console.log("hi")}}></i></p>
+      return <p key={val.city}>{val.city} <i className="fa fa-plus-circle" aria-hidden="true" onClick={()=>{
+        console.log(val.city)
+      }}></i></p>
     })
     return (
       <div>
