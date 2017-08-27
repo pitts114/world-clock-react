@@ -6,10 +6,6 @@ import 'moment-timezone';
 
 var d = new Date();
 
-setInterval(()=>{
-  d = new Date();
-  console.log(d.toString())
-}, 1000);
 
 
 function App() {
@@ -20,6 +16,7 @@ function App() {
       </div>
       <div className="col-xs-8 bg-light">
         <ClockPanel />
+        <Moment interval={1000} format="hh:mm:ss" tz="America/Los_Angeles"/>
       </div>
     </div>
   )
@@ -40,21 +37,13 @@ class Clock extends React.Component {
       time: d.toLocaleTimeString()
     }
   }
-  tick() {
-    this.setState({
-      time: d.toLocaleTimeString()
-    });
-  }
 
   componentDidMount() {
-    this.timerID = setInterval(
-      () => this.tick(),
-      1000
-    );
+
   }
 
   componentWillUnmount() {
-    clearInterval(this.timerID);
+
   }
 
   render() {
