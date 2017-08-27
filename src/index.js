@@ -18,7 +18,7 @@ class App extends React.Component {
   constructor() {
     super()
     this.state = {
-      activeCities: [{city: "New York", tz:"America/New_York"}] //[{tokyo, asia/tokyo}, {new york, america/newyork}]
+      activeCities: [] //[{tokyo, asia/tokyo}, {new york, america/newyork}]
     }
     this.addCity = this.addCity.bind(this)
     this.removeCity = this.removeCity.bind(this)
