@@ -120,6 +120,7 @@ class ClockPanel extends React.Component {
       })
       return (
         <div className="row text-center">
+          <h2>World Clocks</h2>
           {list}
         </div>
       )
