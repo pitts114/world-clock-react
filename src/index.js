@@ -30,7 +30,7 @@ class App extends React.Component {
   }
   removeCity(city) {
     var s = this.state.activeCities.filter(function(element) {
-      if (element.city == city) {
+      if (element.city === city) {
         return false
       }
       return true
@@ -98,9 +98,6 @@ class CityButton extends React.Component {
 }
 
 class CityPanel extends React.Component {
-  constructor(props){
-    super(props)
-  }
   render() {
     const addCity = this.props.addCity
     const rmCity = this.props.rmCity
