@@ -14,7 +14,27 @@ const cities = [
 ];
 
 
-function App() {
+class App extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      activeCities: [] //[{tokyo, asia/tokyo}, {new york, america/newyork}]
+    }
+  }
+  addCity(city, tz) {
+    var s = this.state.activeCities
+    this.setState(s.push({city:city, tz: tz}))
+  }
+  removeCity(city) {
+    var s = this.state.activeCities.filter(function(element) {
+      if (element.city == city) {
+        return false
+      }
+      return true
+    })
+    this.setState(s)
+  }
+render() {
   return (
     <div className="container">
       <div id="city-panel" className="col-xs-4  bg-dark">
@@ -26,6 +46,7 @@ function App() {
       </div>
     </div>
   )
+}
 }
 /*
 function ClockPanel() {
