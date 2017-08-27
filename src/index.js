@@ -63,7 +63,11 @@ class CityButton extends React.Component {
   }
   render() {
     return(
-      <i className="fa fa-plus-circle" aria-hidden="true" onClick={this.props.onClick}></i>
+      //<i className="fa fa-plus-circle" aria-hidden="true" onClick={()=>{
+      <i className={"fa " + this.state.class} aria-hidden="true" onClick={()=>{
+        this.toggle()
+        this.props.onClick()
+      }}></i>
     )
   }
 }
@@ -72,9 +76,9 @@ class CityPanel extends React.Component {
 
   render() {
     var list = cities.map(function(val) {
-      return <p key={val.city}>{val.city} <i className="fa fa-plus-circle" aria-hidden="true" onClick={()=>{
+      return <p key={val.city}>{val.city} <CityButton onClick={()=>{
         console.log(val.city)
-      }}></i></p>
+      }}/></p>
     })
     return (
       <div>
