@@ -18,12 +18,18 @@ class App extends React.Component {
   constructor() {
     super()
     this.state = {
-      activeCities: [] //[{tokyo, asia/tokyo}, {new york, america/newyork}]
+      activeCities: [{city: "New York", tz:"America/New_York"}] //[{tokyo, asia/tokyo}, {new york, america/newyork}]
     }
+    this.addCity = this.addCity.bind(this)
+    this.removeCity = this.removeCity.bind(this)
   }
   addCity(city, tz) {
+    console.log("Adding " + city + " in " + tz)
     var s = this.state.activeCities
-    this.setState({activeCities: s.push({city:city, tz: tz})})
+    console.log("Current state :")
+    console.log(s)
+    s.push({city:city, tz: tz})
+    this.setState({activeCities: s})
   }
   removeCity(city) {
     var s = this.state.activeCities.filter(function(element) {
@@ -35,14 +41,16 @@ class App extends React.Component {
     this.setState({activeCities: s})
   }
 render() {
+  console.log("Giving this to ClockPanel:")
+  console.log(this.state.activeCities)
   return (
     <div className="container">
       <div id="city-panel" className="col-xs-4  bg-dark">
         <h2>Cities</h2>
-        <CityPanel addCity={this.addCity} rmCity={this.remvoeCity}/>
+        <CityPanel addCity={this.addCity} rmCity={this.removeCity}/>
       </div>
       <div className="col-xs-8 bg-light">
-        <ClockPanel />
+        <ClockPanel activeCities={this.state.activeCities}/>
       </div>
     </div>
   )
@@ -70,6 +78,8 @@ class CityButton extends React.Component {
   }
   toggle() {
     if (this.state.shouldAdd) {
+      console.log("Adding city: " + this.props.city)
+      console.log("TZ: " + this.props.tz)
       this.props.addCity(this.props.city, this.props.tz)
       this.setState({
         shouldAdd:false,
@@ -89,7 +99,6 @@ class CityButton extends React.Component {
       //<i className="fa fa-plus-circle" aria-hidden="true" onClick={()=>{
       <i className={"fa " + this.state.class} aria-hidden="true" onClick={()=>{
         this.toggle()
-        this.props.onClick()
       }}></i>
     )
   }
@@ -100,8 +109,8 @@ class CityPanel extends React.Component {
     super(props)
   }
   render() {
-    var addCity=this.props.addCity
-    var rmCity = this.props.rmCity
+    const addCity = this.props.addCity
+    const rmCity = this.props.rmCity
     var list = cities.map(function(val) {
       return <p key={val.city}>{val.city} <CityButton addCity={addCity} rmCity={rmCity} city={val.city} tz={val.tz}/></p>
     })
@@ -115,7 +124,9 @@ class CityPanel extends React.Component {
 
 class ClockPanel extends React.Component {
     render() {
-      var list = cities.map(function(val) {
+      console.log("Clock panel props:")
+      console.log(this.props)
+      var list = this.props.activeCities.map(function(val) {
         console.log(val);
         return (<Clock key={val.city} city={val.city} tz={val.tz} />)
       })
