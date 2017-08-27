@@ -16,7 +16,6 @@ function App() {
       </div>
       <div className="col-xs-8 bg-light">
         <ClockPanel />
-        <Moment interval={1000} format="hh:mm:ss" tz="America/Los_Angeles"/>
       </div>
     </div>
   )
@@ -49,7 +48,7 @@ class Clock extends React.Component {
   render() {
       return (
         <div className="col-xs-4">
-          <h2>{this.state.time}</h2>
+          <h2><Moment interval={1000} format="hh:mm:ss A" tz="America/Los_Angeles"/></h2>
           <h3>New York</h3>
         </div>
       )
