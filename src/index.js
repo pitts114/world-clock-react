@@ -42,7 +42,7 @@ function ClockPanel() {
 class CityPanel extends React.Component {
   render() {
     var list = cities.map(function(val) {
-      return <p key={val.city}>{val.city}</p>
+      return <p key={val.city}>{val.city} <i className="fa fa-plus-circle" aria-hidden="true" onClick={()=>{console.log("hi")}}></i></p>
     })
     return (
       <div>
