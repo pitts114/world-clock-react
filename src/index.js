@@ -45,9 +45,9 @@ class CityPanel extends React.Component {
       return <p key={val.city}>{val.city}</p>
     })
     return (
-      <ul>
+      <div>
         {list}
-      </ul>
+      </div>
     )
   }
 }
@@ -77,9 +77,9 @@ class Clock extends React.Component {
 
   render() {
       return (
-        <div className="col-xs-4">
-          <h2><Moment interval={1000} format="h:mm A" tz={this.props.tz}/></h2>
-          <h3>{this.props.city}</h3>
+        <div className="col-xs-6 col-sm-4 col-md-3">
+          <h3 className="sometext"><Moment interval={1000} format="h:mm A" tz={this.props.tz}/></h3>
+          <h4 className="sometext">{this.props.city}</h4>
         </div>
       )
     }
