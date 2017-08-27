@@ -24,32 +24,26 @@ function App() {
 function ClockPanel() {
   return (
       <div className="row text-center">
-        <Clock />
+        <Clock city="New York" tz="America/New_York"/>
+        <Clock city="Los Angeles" tz="America/Los_Angeles"/>
+        <Clock city="Tokyo" tz="Asia/Tokyo"/>
       </div>
   )
 }
 
 class Clock extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       time: d.toLocaleTimeString()
     }
   }
 
-  componentDidMount() {
-
-  }
-
-  componentWillUnmount() {
-
-  }
-
   render() {
       return (
         <div className="col-xs-4">
-          <h2><Moment interval={1000} format="hh:mm:ss A" tz="America/Los_Angeles"/></h2>
-          <h3>New York</h3>
+          <h2><Moment interval={1000} format="h:mm:ss A" tz={this.props.tz}/></h2>
+          <h3>{this.props.city}</h3>
         </div>
       )
     }
