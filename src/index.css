@@ -28,3 +28,6 @@ body {
 .fa-plus-circle, .fa-minus-circle{
   cursor:pointer;
 }
+.clock{
+  height:110px;
+}
